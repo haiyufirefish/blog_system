@@ -1,2 +1,10 @@
-package com.ff.blog.vo.params;public class ArticleBodyParam {
+package com.ff.blog.vo.params;
+
+import lombok.Data;
+
+@Data
+public class ArticleBodyParam {
+    private String content;
+
+    private String contentHtml;
 }

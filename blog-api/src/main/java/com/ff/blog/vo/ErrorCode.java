@@ -6,7 +6,8 @@ public enum ErrorCode {
     ACCOUNT_PWD_NOT_EXIST(10002,"user or password doesn't exist"),
     NO_PERMISSION(70001,"no permission"),
     SESSION_TIME_OUT(90001,"session timeout"),
-    NO_LOGIN(90002,"no login"),;
+    NO_LOGIN(90002,"no login"),
+    ACCOUNT_EXIST(10004,"account exist");
 
     private int code;
     private String msg;

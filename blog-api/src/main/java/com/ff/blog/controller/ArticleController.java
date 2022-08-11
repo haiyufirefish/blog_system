@@ -1,15 +1,16 @@
 package com.ff.blog.controller;
 
+import com.ff.blog.common.aop.LogAnnotation;
+import com.ff.blog.dao.pojo.Article;
 import com.ff.blog.service.ArticleService;
 import com.ff.blog.vo.ArticleVo;
 import com.ff.blog.vo.Result;
+import com.ff.blog.vo.params.ArticleParam;
 import com.ff.blog.vo.params.PageParams;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import javax.websocket.server.PathParam;
 import java.util.List;
 
 @RestController
@@ -25,6 +26,8 @@ public class ArticleController {
      * @return
      */
     @PostMapping
+    //add this annotation, to record the information of this interface
+    @LogAnnotation(module = "article",operator = "get the article list")
     public Result articles(@RequestBody PageParams pageParams) {
         //ArticleVo page receive the data
 
@@ -49,6 +52,17 @@ public class ArticleController {
     @PostMapping("listArchives")
     public Result listArchives(){
         return articleService.listArchives();
+    }
+
+    @PostMapping("view/{id}")
+    public Result findArticleById(@PathVariable("id")Long id){
+        ArticleVo articleVo = articleService.findArticleById(id);
+        return Result.success(articleVo);
+    }
+
+    @PostMapping("publish")
+    public Result publish(@RequestBody ArticleParam articleParam){
+        return articleService.publish(articleParam);
     }
 
 }

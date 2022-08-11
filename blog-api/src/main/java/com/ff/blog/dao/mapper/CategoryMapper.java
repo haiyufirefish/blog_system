@@ -1,7 +1,7 @@
 package com.ff.blog.dao.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.ff.blog.dao.pojo.Catagory;
+import com.ff.blog.dao.pojo.Category;
 
-public interface CatagoryMapper extends BaseMapper<Catagory> {
+public interface CategoryMapper extends BaseMapper<Category> {
 }

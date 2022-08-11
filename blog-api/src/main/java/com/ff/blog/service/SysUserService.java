@@ -2,6 +2,7 @@ package com.ff.blog.service;
 
 import com.ff.blog.dao.pojo.SysUser;
 import com.ff.blog.vo.Result;
+import com.ff.blog.vo.UserVo;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -32,4 +33,11 @@ public interface SysUserService {
      * @param sysUser
      */
     void save(SysUser sysUser);
+
+    /*
+     *
+     */
+    Result getUserInfoByToken(String token);
+
+    UserVo findUserVoById(Long toUid);
 }

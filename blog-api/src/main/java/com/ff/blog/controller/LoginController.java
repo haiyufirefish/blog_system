@@ -16,10 +16,10 @@ public class LoginController {
 //    private SysUserService sysUserService;
 
     @Autowired
-    private LoginService loginServivce;
+    private LoginService loginService;
 
     @PostMapping
     public Result login(@RequestBody LoginParams loginParams){
-        return loginServivce.login(loginParams);
+        return loginService.login(loginParams);
     }
 }

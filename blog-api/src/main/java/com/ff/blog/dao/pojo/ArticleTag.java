@@ -1,2 +1,12 @@
-package com.ff.blog.dao.pojo;public class ArticleTag {
+package com.ff.blog.dao.pojo;
+
+import lombok.Data;
+
+@Data
+public class ArticleTag {
+    private Long id;
+
+    private Long articleId;
+
+    private Long tagId;
 }
