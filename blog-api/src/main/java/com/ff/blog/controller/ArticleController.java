@@ -1,6 +1,7 @@
 package com.ff.blog.controller;
 
 import com.ff.blog.common.aop.LogAnnotation;
+import com.ff.blog.common.cache.Cache;
 import com.ff.blog.dao.pojo.Article;
 import com.ff.blog.service.ArticleService;
 import com.ff.blog.vo.ArticleVo;
@@ -32,12 +33,13 @@ public class ArticleController {
         //ArticleVo page receive the data
 
 //        int i = 10/0;
-        List<ArticleVo> articles = articleService.listArticlesPage(pageParams);
+        Result articles = articleService.listArticles(pageParams);
 
-        return Result.success(articles);
+        return articles;
     }
 
     @PostMapping("hot")
+    @Cache(expire = 5 * 60 * 1000,name = "hot_article")
     public Result hotArticle(){
         int limit = 5;
         return articleService.hotArticle(limit);

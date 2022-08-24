@@ -8,7 +8,7 @@ import com.ff.blog.vo.params.PageParams;
 import java.util.List;
 
 public interface ArticleService {
-    List<ArticleVo> listArticlesPage(PageParams pageParams);
+    Result listArticles(PageParams pageParams);
     Result hotArticle(int limit);
     Result newArticles(int limit);
 

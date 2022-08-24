@@ -10,4 +10,7 @@ public interface TagsService {
     List<TagVo> hot(int limit);
 
     Result findAll();
+    Result findAllDetail();
+
+    Result findDetailbyId(Long id);
 }

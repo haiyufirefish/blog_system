@@ -13,4 +13,6 @@ public class CategoryVo {
 
     private String categoryName;
 
+    private String description;
+
 }
